@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <locale.h>
 
 int calc(int hours);
-double yearToHour();
+void yearToHour();
+void hourToYear();
 int main(){
 
 	long double yearlySalary;
@@ -16,7 +18,10 @@ int main(){
 	switch(answer){
 		case 1:
 			yearToHour();
+			break;
 		case 2:
+			hourToYear();
+			break;
 	}
 
 		
@@ -27,18 +32,36 @@ int calc(int hours){
 	return res;
 }
 
-double yearToHour(){
-	
+void yearToHour(){
+	setlocale(LC_NUMERIC,"");
 	double salary; 
 	
 	printf("Enter your Yearly Salary \n$");
 	scanf("%lf", &salary);
-	double taxedSalary = salary * 0.735;
-	double monthly = taxedSalary / 12;
+	double taxed = salary * 0.735;
+	double monthly = taxed / 12;
 	double biWeekly = monthly /2;
 	double hourly = biWeekly / 80;
-	printf("Your hourly rate is:\n $%.2lf \n", hourly);
+	double unTax = taxed /0.735;
+	double unTaxTotal = ((unTax /12)/2)/80;
+	printf("Your hourly rate PRE TAX is $%'.2lf \n", unTaxTotal);
+	printf("Your hourly rate POST TAX is: $%'.2lf \n", hourly);
 
+}
+
+void hourToYear(){
+	double hourly;
+	const float taxAmt = 0.735;
+	printf("Enter your Hourly Rate \n$");
+	scanf("%lf", &hourly);
+
+	double paycheck = hourly * 80;
+	double monthly = paycheck * 2;
+	double yearly = monthly * 12;
+	double taxedYear = yearly * taxAmt;
+
+	printf("\n Your gross yearly: %lf \n", yearly);
+	printf("Your taxed yearly: %lf \n",taxedYear);
 }
 
 
