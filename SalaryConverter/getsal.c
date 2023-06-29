@@ -9,12 +9,13 @@ int main(){
 	long double yearlySalary;
 	long double hourlyRate;
 	int res;
-	int answer;
+	int answer = 4;
 
-	
-	printf("Select an Operation: \n 1. Yearly to Hourly \n 2. Hourly to Yearly \n");
+
+	while(answer !=3){
+	printf("Select an Operation: \n 1. Yearly to Hourly \n 2. Hourly to Yearly \n 3. Exit\n");
 	scanf("%d",&answer);
-
+	
 	switch(answer){
 		case 1:
 			yearToHour();
@@ -22,9 +23,11 @@ int main(){
 		case 2:
 			hourToYear();
 			break;
+		
+	}
 	}
 
-		
+	
 }
 
 int calc(int hours){
@@ -59,9 +62,9 @@ void hourToYear(){
 	double monthly = paycheck * 2;
 	double yearly = monthly * 12;
 	double taxedYear = yearly * taxAmt;
-
-	printf("\n Your gross yearly: %lf \n", yearly);
-	printf("Your taxed yearly: %lf \n",taxedYear);
+	
+	printf("\nYour gross yearly: $%'.2lf \n", yearly);
+	printf("Your taxed yearly: $%'.2lf \n",taxedYear);
 }
 
 
