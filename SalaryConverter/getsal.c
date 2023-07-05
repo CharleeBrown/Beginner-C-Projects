@@ -11,23 +11,19 @@ int main(){
 	int res;
 	int answer = 4;
 
-
 	while(answer !=3){
-	printf("Select an Operation: \n 1. Yearly to Hourly \n 2. Hourly to Yearly \n 3. Exit\n");
-	scanf("%d",&answer);
+		printf("Select an Operation: \n 1. Yearly to Hourly \n 2. Hourly to Yearly \n 3. Exit\n");
+		scanf("%d",&answer);
 	
-	switch(answer){
-		case 1:
-			yearToHour();
-			break;
-		case 2:
-			hourToYear();
-			break;
-		
+		switch(answer){
+			case 1:
+				yearToHour();
+				break;
+			case 2:
+				hourToYear();
+				break;
+		}	
 	}
-	}
-
-	
 }
 
 int calc(int hours){
