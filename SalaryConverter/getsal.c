@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <locale.h>
 
-int calc(int hours);
 void yearToHour();
 void hourToYear();
 int main(){
@@ -26,10 +25,6 @@ int main(){
 	}
 }
 
-int calc(int hours){
-	int res = hours * 2;
-	return res;
-}
 
 void yearToHour(){
 	setlocale(LC_NUMERIC,"");
